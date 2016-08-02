@@ -52,7 +52,7 @@ def process(img):
   (thresh, img_bw) = cv2.threshold(img_gray, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
   img_bw = cv2.threshold(img_gray, thresh, 255, cv2.THRESH_BINARY)[1]
   # Output with original size
-  img_out = cv2.resize(img_bw, original_size, interpolation=cv2.cv.CV_INTER_NN)
+  img_out = cv2.resize(img_bw, (original_size[0]*2, original_size[1]*2), interpolation=cv2.cv.CV_INTER_NN)
   cv2.imshow('video', img_out)
 
 if __name__ == '__main__':
